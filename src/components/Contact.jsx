@@ -1,3 +1,4 @@
+import React from "react";
 export default function Contact() {
     return (
         <section style={{ padding: "40px 20px" }}>

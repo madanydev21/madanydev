@@ -1,0 +1,16 @@
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #16a34a;
+  width: 0;
+  animation: typing 2.6s steps(30) forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 260px } /* sesuaikan panjang teks */
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
