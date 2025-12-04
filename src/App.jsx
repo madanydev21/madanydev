@@ -1,8 +1,66 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Github, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 export default function App() {
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 }
+  };
+
+  const fadeScale = {
+    hidden: { opacity: 0, scale: 0.9 },
+    show: { opacity: 1, scale: 1 }
+  };
+
+  const fadeContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.1,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const fadeItem = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const skillsContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const skillItem = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#1a1a22] to-[#0a0a0f] text-white font-inter relative overflow-hidden">
 
@@ -88,9 +146,26 @@ export default function App() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className=" px-8 lg:px-20 py-20 w-full relative z-10">
-        <h3 className="text-3xl font-semibold text-orange-300 mb-4">About Me</h3>
-        <p className="text-gray-300 leading-relaxed max-w-6xl text-justify">
+      <section id="about" className="px-8 lg:px-20 py-20 w-full relative z-10">
+        <motion.h3
+          className="text-3xl font-semibold text-orange-300 mb-4"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          About Me
+        </motion.h3>
+
+        <motion.p
+          className="text-gray-300 leading-relaxed max-w-6xl text-justify"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           Saya adalah seorang developer yang berfokus pada pengembangan aplikasi web modern,
           khususnya menggunakan <span className="text-orange-300 font-semibold">Laravel</span>,
           <span className="text-orange-300 font-semibold">REST API</span>,
@@ -106,57 +181,159 @@ export default function App() {
           Saat ini saya fokus mengembangkan project–project yang melibatkan
           otomasi transaksi, dashboard admin, sistem pemesanan, serta aplikasi berbasis API.
           Saya selalu berusaha belajar hal baru dan mengeksplor teknologi modern untuk meningkatkan kualitas pekerjaan saya.
-        </p>
-
+        </motion.p>
       </section>
 
       {/* PROJECTS */}
-      {/* PROJECTS */}
       <section id="projects" className="px-8 lg:px-20 py-20 w-full relative z-10">
-        <h3 className="text-3xl font-semibold text-orange-300 mb-8">Projects</h3>
+        <motion.h3
+          className="text-3xl font-semibold text-orange-300 mb-8"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Projects
+        </motion.h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          {[
+            {
+              img: "/public/resto.png",
+              title: "Restaurant App",
+              desc: "Sistem Pemesanan Meja dan Menu Restoran Online."
+            },
+            {
+              img: "/public/ppob.png",
+              title: "PPOB App",
+              desc: "Transaksi Digital untuk berbagai Produk Digiflazz."
+            },
+            {
+              img: "/public/tripay.png",
+              title: "Tripay Integration",
+              desc: "Integrasi pembayaran realtime, webhook, checker."
+            }
+          ].map((p, i) => (
+            <motion.div
+              key={i}
+              className="bg-white/5 border border-white/10 p-5 rounded-xl shadow-lg 
+             backdrop-blur-md hover:shadow-orange-500/40"
+              variants={fadeScale}
+              whileHover={{ scale: 1.05 }}
+              transition={{
+                type: "spring",
+                stiffness: 120,
+                damping: 12,
+                duration: 0.6,
+                delay: i * 0.2
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <img src={p.img} className="w-full h-40 object-cover rounded-lg mb-4" />
+              <h4 className="font-semibold text-lg mb-2">{p.title}</h4>
+              <p className="text-gray-400 text-sm">{p.desc}</p>
+            </motion.div>
 
-          {/* Project 1 */}
-          <div className="bg-white/5 border border-white/10 p-5 rounded-xl hover:scale-[1.03] transition shadow-lg backdrop-blur-md">
-            <img
-              src="https://source.unsplash.com/600x400/?restaurant,food"
-              className="w-full h-40 object-cover rounded-lg mb-4"
-            />
-            <h4 className="font-semibold text-lg mb-2">Sistem Pemesanan Restoran</h4>
-            <p className="text-gray-400 text-sm">Laravel + Tailwind, AJAX Cart, Midtrans</p>
-          </div>
-
-          {/* Project 2 */}
-          <div className="bg-white/5 border border-white/10 p-5 rounded-xl hover:scale-[1.03] transition shadow-lg backdrop-blur-md">
-            <img
-              src="https://source.unsplash.com/600x400/?payment,technology"
-              className="w-full h-40 object-cover rounded-lg mb-4"
-            />
-            <h4 className="font-semibold text-lg mb-2">PPOB Midtrans Snap</h4>
-            <p className="text-gray-400 text-sm">Integrasi pembayaran realtime, webhook, status checker</p>
-          </div>
-
-          {/* Project 3 */}
-          <div className="bg-white/5 border border-white/10 p-5 rounded-xl hover:scale-[1.03] transition shadow-lg backdrop-blur-md">
-            <img
-              src="https://source.unsplash.com/600x400/?dashboard,data"
-              className="w-full h-40 object-cover rounded-lg mb-4"
-            />
-            <h4 className="font-semibold text-lg mb-2">Admin Dashboard Responsive</h4>
-            <p className="text-gray-400 text-sm">Dynamic table, chart, live monitoring</p>
-          </div>
-
+          ))}
         </div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" className="px-10 py-20 relative z-10 w-full">
+        <motion.h3
+          className="text-3xl font-semibold text-orange-300 mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          Skills
+        </motion.h3>
+
+        <motion.div
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-6 w-full"
+          variants={skillsContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {[
+            { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+            { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+            { name: "Bootstrap", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+            { name: "Tailwind", img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" },
+            { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+            { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+            { name: "Laravel", img: "https://www.vectorlogo.zone/logos/laravel/laravel-icon.svg" },
+            { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+            { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+            { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+            { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+            { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+            { name: "Firebase", img: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" },
+            { name: "Express.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+          ].map((skill, i) => (
+            <motion.div
+              key={i}
+              className="flex flex-col items-center gap-2 bg-white/5 border border-white/10 
+             rounded-xl py-5 px-3 shadow-lg backdrop-blur-md hover:shadow-orange-500/40"
+              variants={skillItem}
+              whileHover={{ scale: 1.06 }}
+              transition={{ type: "spring", stiffness: 120, damping: 12 }}
+            >
+              <img
+                src={skill.img}
+                className="w-12 h-12 drop-shadow-[0_0_10px_rgba(255,140,0,0.6)]"
+              />
+              <p className="text-sm text-gray-300">{skill.name}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
 
       {/* CONTACT */}
-      <section id="contact" className="px-8 lg:px-20 py-20 w-full relative z-10">
-        <h3 className="text-3xl font-semibold text-orange-300 mb-4">Contact</h3>
-        <p className="text-gray-300 mb-2">Email: madanydev21@gmail.com</p>
-        <p className="text-gray-300">GitHub: github.com/madanydev21</p>
+      <section id="contact" className="px-10 py-20 relative z-10 w-full">
+        <motion.h3
+          className="text-3xl font-semibold text-orange-300 mb-6"
+          variants={fadeItem}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Contact
+        </motion.h3>
+
+        <motion.div
+          className="space-y-3 text-gray-300"
+          variants={fadeContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {[
+            { icon: <Mail size={20} />, label: "madanydev21@gmail.com" },
+            { icon: <Phone size={20} />, label: "08xxxxxxxxxx" },
+            { icon: <Github size={20} />, label: "GitHub", url: "https://github.com" },
+            { icon: <Instagram size={20} />, label: "Instagram", url: "https://instagram.com" },
+            { icon: <Linkedin size={20} />, label: "LinkedIn", url: "https://linkedin.com" },
+          ].map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.url || "#"}
+              variants={fadeItem}
+              className="flex items-center gap-3 hover:text-orange-300"
+            >
+              {item.icon} {item.label}
+            </motion.a>
+          ))}
+        </motion.div>
       </section>
+
 
       {/* FOOTER */}
       <footer className="text-center text-gray-500 py-8 text-sm border-t border-white/10 relative z-10 w-full">
