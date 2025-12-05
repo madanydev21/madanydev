@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Github, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { Sparkles, Github, Instagram, Facebook, Mail, Phone } from "lucide-react";
 
 export default function App() {
 
@@ -86,8 +86,20 @@ export default function App() {
 
       {/* NAVBAR */}
       <nav className="flex justify-between items-center px-8 py-6 relative z-10 w-full">
-        <h1 className="text-xl font-bold text-orange-300">MadanyDev</h1>
+        {/* LEFT: Logo + Brand wrapped in a link */}
+        <a
+          href="/"
+          className="flex items-center gap-3 hover:opacity-80 transition"
+        >
+          <img
+            src="./logomd.png"
+            className="w-10 h-10 object-contain"
+            alt="Logo"
+          />
+          <h2 className="text-2xl font-bold text-orange-300">MadanyDev</h2>
+        </a>
 
+        {/* RIGHT: Menu */}
         <div className="space-x-6 text-gray-300">
           <a href="#about" className="hover:text-orange-300 transition">About</a>
           <a href="#projects" className="hover:text-orange-300 transition">Projects</a>
@@ -95,8 +107,10 @@ export default function App() {
         </div>
       </nav>
 
+
+
       {/* HERO */}
-      <section className="px-8 py-24 text-center relative z-10 w-full">
+      <section className="px-8 py-32 text-center relative z-10 w-full">
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-5 text-orange-300 drop-shadow-[0_0_15px_rgba(255,140,0,0.6)]"
           initial={{ opacity: 0, y: -20 }}
@@ -110,7 +124,7 @@ export default function App() {
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
             className="bg-gradient-to-r from-orange-200 via-yellow-400 to-orange-300 bg-[length:200%_200%] text-transparent bg-clip-text"
           >
-            Fullstack Developer
+            A Fullstack Developer
           </motion.span>
         </motion.h1>
 
@@ -120,7 +134,7 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1.2 }}
         >
-          Portofolio saya dengan beberapa project yang telah dkerjakan.
+          This is my portfolio with some projects that I have worked on.
         </motion.p>
 
         <motion.div
@@ -133,20 +147,20 @@ export default function App() {
             href="#projects"
             className="px-6 py-3 rounded-xl text-white font-medium shadow-lg bg-white/10 hover:shadow-orange-500/40 transition"
           >
-            Lihat Proyek
+            View Projects
           </a>
 
           <a
             href="#contact"
             className="px-6 py-3 rounded-xl bg-white/10 hover:shadow-orange-500/40 shadow-lg font-medium border border-white/20 backdrop-blur-sm transition flex items-center gap-2"
           >
-            <Sparkles size={18} /> Hubungi Saya
+            <Sparkles size={18} /> Contact Me
           </a>
         </motion.div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="px-8 lg:px-20 py-20 w-full relative z-10">
+      <section id="about" className="px-8 lg:px-20 py-16 w-full relative z-10">
         <motion.h3
           className="text-3xl font-semibold text-orange-300 mb-4 text-center"
           variants={fadeUp}
@@ -167,25 +181,22 @@ export default function App() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Saya adalah seorang developer yang berfokus pada pengembangan aplikasi web modern,
-          khususnya menggunakan <span className="text-orange-300 font-semibold">Laravel</span>,
-          <span className="text-orange-300 font-semibold">REST API</span>,
-          integrasi pembayaran seperti <span className="text-orange-300 font-semibold">Midtrans Snap</span>,
-          serta desain antarmuka berbasis <span className="text-orange-300 font-semibold">Tailwind CSS</span>.
+          khususnya menggunakan kombinasi <span className="text-orange-300 font-semibold">Laravel</span> dengan <span className="text-orange-300 font-semibold">React JS</span>,
+          integrasi pembayaran seperti <span className="text-orange-300 font-semibold">Tripay</span>,
+          serta desain style berbasis <span className="text-orange-300 font-semibold">Tailwind CSS</span>.
           <br /><br />
           Saya terbiasa membangun sistem yang cepat, rapi, dan mudah dikembangkan—mulai dari backend
-          yang terstruktur, optimalisasi query database, pengamanan API, hingga pengalaman frontend yang responsif.
+          yang terstruktur, optimalisasi query database, pengamanan API, hingga pengalaman frontend yang responsif. Dalam pekerjaan, saya mengutamakan clean code, efisiensi, dan solusi yang dapat digunakan untuk
+          jangka panjang.
           <br /><br />
-          Dalam pekerjaan, saya mengutamakan clean code, efisiensi, dan solusi yang dapat digunakan untuk
-          jangka panjang. Saya juga nyaman bekerja dengan konsep asinkron, AJAX, dan integrasi pihak ketiga.
+          Disamping sebagai Developer, saya juga sebagai Mentor pada beberapa kelas kursus pemograman yang saya buka ketika saya memiliki waktu yang luang/longgar, yang telah berjalan sejak Tahun 2022.
           <br /><br />
-          Saat ini saya fokus mengembangkan project–project yang melibatkan
-          otomasi transaksi, dashboard admin, sistem pemesanan, serta aplikasi berbasis API.
-          Saya selalu berusaha belajar hal baru dan mengeksplor teknologi modern untuk meningkatkan kualitas pekerjaan saya.
+          Saya juga terbuka untuk bekerjasama dalam pengerjaan proyek baik skala kecil, menengah maupun besar, terutama untuk pekerjaan Remote/WFH. Untuk On Site saat ini saya hanya bisa menerima di daerah Jatim, Jateng, DIY & Jabar saja.
         </motion.p>
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className="px-8 lg:px-20 py-20 w-full relative z-10">
+      <section id="projects" className="px-8 lg:px-20 py-16 w-full relative z-10">
         <motion.h3
           className="text-3xl font-semibold text-orange-300 mb-8 text-center"
           variants={fadeUp}
@@ -194,7 +205,7 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Projects
+          My Projects
         </motion.h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
@@ -249,7 +260,7 @@ export default function App() {
               viewport={{ once: true }}
             >
               <img src={p.img} className="w-full h-40 object-cover rounded-lg mb-4" />
-              <h4 className="font-semibold text-lg mb-2">{p.title}</h4>
+              <h4 className="font-semibold text-lg mb-2 text-center">{p.title}</h4>
               <p className="text-gray-400 text-sm">{p.desc}</p>
             </motion.div>
           ))}
@@ -257,7 +268,7 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="px-10 py-20 relative z-10 w-full">
+      <section id="skills" className="px-10 py-16 relative z-10 w-full">
         <motion.h3
           className="text-3xl font-semibold text-orange-300 mb-10 text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -265,7 +276,7 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          Skills
+          My Skills
         </motion.h3>
 
         <motion.div
@@ -318,7 +329,7 @@ export default function App() {
 
 
       {/* CONTACT */}
-      <section id="contact" className="px-10 py-20 relative z-10 w-full">
+      <section id="contact" className="px-10 py-16 relative z-10 w-full">
         <motion.h3
           className="text-3xl font-semibold text-orange-300 mb-6 text-center"
           variants={fadeItem}
@@ -327,7 +338,7 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Contacts
+          My Contacts
         </motion.h3>
 
         <motion.div
@@ -339,10 +350,10 @@ export default function App() {
         >
           {[
             { icon: <Mail size={20} />, label: "madanydev21@gmail.com" },
-            { icon: <Phone size={20} />, label: "08xxxxxxxxxx" },
-            { icon: <Github size={20} />, label: "GitHub", url: "https://github.com" },
-            { icon: <Instagram size={20} />, label: "Instagram", url: "https://instagram.com" },
-            { icon: <Linkedin size={20} />, label: "LinkedIn", url: "https://linkedin.com" },
+            { icon: <Phone size={20} />, label: "081244751352" },
+            { icon: <Github size={20} />, label: "GitHub", url: "https://github.com/madanydev21" },
+            { icon: <Instagram size={20} />, label: "Instagram", url: "https://www.instagram.com/madany_dev" },
+            { icon: <Facebook size={20} />, label: "Facebook", url: "https://www.facebook.com/MadanyDev" },
           ].map((item, i) => (
             <motion.a
               key={i}
