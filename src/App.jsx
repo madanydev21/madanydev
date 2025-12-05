@@ -148,7 +148,7 @@ export default function App() {
       {/* ABOUT */}
       <section id="about" className="px-8 lg:px-20 py-20 w-full relative z-10">
         <motion.h3
-          className="text-3xl font-semibold text-orange-300 mb-4"
+          className="text-3xl font-semibold text-orange-300 mb-4 text-center"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
@@ -187,7 +187,7 @@ export default function App() {
       {/* PROJECTS */}
       <section id="projects" className="px-8 lg:px-20 py-20 w-full relative z-10">
         <motion.h3
-          className="text-3xl font-semibold text-orange-300 mb-8"
+          className="text-3xl font-semibold text-orange-300 mb-8 text-center"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
@@ -200,19 +200,35 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           {[
             {
-              img: "/public/resto.png",
+              img: "/resto.png",
               title: "Restaurant App",
-              desc: "Sistem Pemesanan Meja dan Menu Restoran Online."
+              desc: "Sistem Pemesanan Meja dan Menu Restoran secara Online."
             },
             {
-              img: "/public/ppob.png",
+              img: "/ppob.png",
               title: "PPOB App",
-              desc: "Transaksi Digital untuk berbagai Produk Digiflazz."
+              desc: "Aplikasi PPOB untuk pelayanan Transaksi Online dengan multi payment dari Produk Digiflazz."
             },
             {
-              img: "/public/tripay.png",
+              img: "/gps.png",
+              title: "GPS Tracker",
+              desc: "Implementasi Web Tracking Kapal & Kendaraan yang terhubung dengan GPS secara realtime."
+            },
+
+            {
+              img: "/tripay.png",
               title: "Tripay Integration",
-              desc: "Integrasi pembayaran realtime, webhook, checker."
+              desc: "Integrasi pembayaran realtime, webhook, checker dengan Tripay."
+            },
+            {
+              img: "",
+              title: "POS Kasir",
+              desc: "Aplikasi POS untuk manajemen transaksi oleh Kasir."
+            },
+            {
+              img: "",
+              title: "LMS App (in progress)",
+              desc: "Aplikasi Manajemen Pendidikan untuk Sekolah, Pesantren & Kampus."
             }
           ].map((p, i) => (
             <motion.div
@@ -236,7 +252,6 @@ export default function App() {
               <h4 className="font-semibold text-lg mb-2">{p.title}</h4>
               <p className="text-gray-400 text-sm">{p.desc}</p>
             </motion.div>
-
           ))}
         </div>
       </section>
@@ -244,7 +259,7 @@ export default function App() {
       {/* SKILLS */}
       <section id="skills" className="px-10 py-20 relative z-10 w-full">
         <motion.h3
-          className="text-3xl font-semibold text-orange-300 mb-10"
+          className="text-3xl font-semibold text-orange-300 mb-10 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -270,11 +285,18 @@ export default function App() {
             { name: "Laravel", img: "https://www.vectorlogo.zone/logos/laravel/laravel-icon.svg" },
             { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
             { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-            { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
             { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
             { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+            { name: "PostgreSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+            { name: "Supabase", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
             { name: "Firebase", img: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" },
+            { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+            { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+            { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
             { name: "Express.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+            { name: "Postman", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+            { name: "Swagger", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" },
+            { name: "Linux", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
           ].map((skill, i) => (
             <motion.div
               key={i}
@@ -298,18 +320,18 @@ export default function App() {
       {/* CONTACT */}
       <section id="contact" className="px-10 py-20 relative z-10 w-full">
         <motion.h3
-          className="text-3xl font-semibold text-orange-300 mb-6"
+          className="text-3xl font-semibold text-orange-300 mb-6 text-center"
           variants={fadeItem}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Contact
+          Contacts
         </motion.h3>
 
         <motion.div
-          className="space-y-3 text-gray-300"
+          className="flex flex-wrap gap-6 text-gray-300 justify-center"
           variants={fadeContainer}
           initial="hidden"
           whileInView="show"
