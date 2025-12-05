@@ -200,33 +200,33 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           {[
             {
-              img: "/resto.png",
+              img: "./resto.png",
               title: "Restaurant App",
               desc: "Sistem Pemesanan Meja dan Menu Restoran secara Online."
             },
             {
-              img: "/ppob.png",
+              img: "./ppob.png",
               title: "PPOB App",
               desc: "Aplikasi PPOB untuk pelayanan Transaksi Online dengan multi payment dari Produk Digiflazz."
             },
             {
-              img: "/gps.png",
+              img: "./gps.png",
               title: "GPS Tracker",
               desc: "Implementasi Web Tracking Kapal & Kendaraan yang terhubung dengan GPS secara realtime."
             },
 
             {
-              img: "/tripay.png",
+              img: "./tripay.png",
               title: "Tripay Integration",
               desc: "Integrasi pembayaran realtime, webhook, checker dengan Tripay."
             },
             {
-              img: "",
+              img: "./pos.png",
               title: "POS Kasir",
               desc: "Aplikasi POS untuk manajemen transaksi oleh Kasir."
             },
             {
-              img: "",
+              img: "./lms.png",
               title: "LMS App (in progress)",
               desc: "Aplikasi Manajemen Pendidikan untuk Sekolah, Pesantren & Kampus."
             }
