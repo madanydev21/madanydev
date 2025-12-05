@@ -77,7 +77,7 @@ export default function App() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#1a1a22] to-[#0a0a0f] text-white font-inter relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#1a1a22] to-[#0a0a0f] text-white font-inter relative overflow-hidden" style={{ background: "#0a0a0f" }}>
 
       {/* Glow Elements */}
       <div className="absolute top-20 right-20 w-[350px] h-[350px] bg-orange-400/30 rounded-full blur-3xl animate-pulse"></div>
