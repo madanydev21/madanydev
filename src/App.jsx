@@ -3,6 +3,21 @@ import { motion } from "framer-motion";
 import { Sparkles, Github, Instagram, Facebook, Mail, Phone } from "lucide-react";
 
 export default function App() {
+  const [showTopButton, setShowTopButton] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowTopButton(true);
+      } else {
+        setShowTopButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -268,7 +283,7 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="px-10 py-16 relative z-10 w-full">
+      <section id="skills" className="px-8 lg:px-20 py-16 relative z-10 w-full">
         <motion.h3
           className="text-3xl font-semibold text-orange-300 mb-10 text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -349,8 +364,8 @@ export default function App() {
           viewport={{ once: true }}
         >
           {[
-            { icon: <Mail size={20} />, label: "madanydev21@gmail.com" },
-            { icon: <Phone size={20} />, label: "081244751352" },
+            { icon: <Mail size={20} />, label: "madanydev21@gmail.com", url: "mailto:madanydev21@gmail.com" },
+            { icon: <Phone size={20} />, label: "081244751352", url: "https://wa.me/6281244751352" },
             { icon: <Github size={20} />, label: "GitHub", url: "https://github.com/madanydev21" },
             { icon: <Instagram size={20} />, label: "Instagram", url: "https://www.instagram.com/madany_dev" },
             { icon: <Facebook size={20} />, label: "Facebook", url: "https://www.facebook.com/MadanyDev" },
@@ -367,10 +382,27 @@ export default function App() {
         </motion.div>
       </section>
 
+      {/* Tombol Back to Top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`z-20 fixed bottom-6 right-6 p-3 rounded-full shadow-lg bg-gray-800 text-white hover:bg-gray-700 transition-all duration-300 ${showTopButton ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg"
+          width="20" height="20"
+          viewBox="0 0 24 24"
+          fill="none" stroke="currentColor"
+          strokeWidth="2" strokeLinecap="round"
+          strokeLinejoin="round">
+          <path d="m5 12 7-7 7 7"></path>
+          <path d="M12 19V5"></path>
+        </svg>
+      </button>
+
 
       {/* FOOTER */}
       <footer className="text-center text-gray-500 py-8 text-sm border-t border-white/10 relative z-10 w-full">
-        © 2025 Madany Dev — All Rights Reserved
+        © 2025 MadanyDev — All Rights Reserved
       </footer>
     </div>
   );
