@@ -103,7 +103,7 @@ export default function App() {
       <nav className="flex justify-between items-center px-8 py-6 relative z-10 w-full">
         {/* LEFT: Logo + Brand wrapped in a link */}
         <a
-          href="/"
+          href="./"
           className="flex items-center gap-3 hover:opacity-80 transition"
         >
           <img
